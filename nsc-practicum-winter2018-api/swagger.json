@@ -1,0 +1,797 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "API for T-Mobile/UST Onboarding tracker",
+    "version" : "1.0.5",
+    "title" : "Onboarding Tool",
+    "contact" : {
+      "email" : "jason.panzer@seattlecolleges.edu"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "paths" : {
+    "/user" : {
+      "post" : {
+        "summary" : "Creates a new user",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "user",
+          "description" : "The user to create.",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/User"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Success! User record has been created."
+          },
+          "400" : {
+            "description" : "Bad request."
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid."
+          },
+          "403" : {
+            "description" : "Operation not authorized."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          },
+          "501" : {
+            "description" : "Service not yet implemented."
+          }
+        }
+      }
+    },
+    "/user/{id}" : {
+      "get" : {
+        "summary" : "Retrieve a user by id.",
+        "description" : "Returns a user by id. If the user is of type \"employee,\" The user object will contain the id of the workflow a user has been assigned, as well as an array of task ids representing the tasks a user has completed. If the user is of type \"manager,\" the object will contain an an associative array where the key is the employee ID and the value if the employee's name (first and last) for the employees they manage",
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "description" : "The id of the user to retrieve.",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "Success! User has been found.",
+            "schema" : {
+              "$ref" : "#/definitions/User"
+            }
+          },
+          "400" : {
+            "description" : "Bad request. User not found."
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid."
+          },
+          "403" : {
+            "description" : "Operation not authorized."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          },
+          "501" : {
+            "description" : "Service not yet implemented."
+          }
+        }
+      },
+      "put" : {
+        "summary" : "Updates an existing user.",
+        "description" : "Updates the user record associated with the specified id.",
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "description" : "id of the user object to update.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "user",
+          "required" : true,
+          "schema" : {
+            "type" : "object",
+            "properties" : {
+              "id" : {
+                "type" : "string",
+                "example" : "72AD9DBC60AE485782D43A1AE09279A"
+              },
+              "firstName" : {
+                "type" : "string",
+                "example" : "Rick"
+              },
+              "lastName" : {
+                "type" : "string",
+                "example" : "Sanchez"
+              },
+              "email" : {
+                "type" : "string",
+                "example" : "rsanchez@example.org"
+              },
+              "phone" : {
+                "type" : "string",
+                "example" : "999-989-9229"
+              },
+              "type" : {
+                "type" : "string",
+                "example" : "manager"
+              },
+              "employees" : {
+                "type" : "object",
+                "additionalProperties" : true,
+                "example" : {
+                  "72AD9DBC60AE485782D43A1AE09279A" : "Morty Smith",
+                  "72AD9DBC60AE485782D43A1A309279A" : "Jesse"
+                }
+              }
+            }
+          }
+        } ],
+        "consumes" : [ "application/json" ],
+        "responses" : {
+          "201" : {
+            "description" : "Success! User record has been updated."
+          },
+          "400" : {
+            "description" : "Bad request. User not found."
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid."
+          },
+          "403" : {
+            "description" : "Operation not authorized."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          },
+          "501" : {
+            "description" : "Service not yet implemented."
+          }
+        }
+      },
+      "delete" : {
+        "summary" : "Deletes an existing user.",
+        "description" : "Deletes an existing user as denoted by the path-specified id.",
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "description" : "id of user to delete.",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success! User record has been removed."
+          },
+          "400" : {
+            "description" : "Bad request. User not found."
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid."
+          },
+          "403" : {
+            "description" : "Operation not authorized."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          },
+          "501" : {
+            "description" : "Service not yet implemented."
+          }
+        }
+      }
+    },
+    "/user/{id}/task" : {
+      "put" : {
+        "summary" : "Adds a completed task.",
+        "parameters" : [ {
+          "in" : "path",
+          "type" : "string",
+          "name" : "id",
+          "description" : "id of the user.",
+          "required" : true
+        }, {
+          "in" : "body",
+          "name" : "task",
+          "description" : "id of the task.",
+          "required" : true,
+          "schema" : {
+            "example" : "72AD9DBC60AE485782D43A1AE09279A"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Success! Task record has been created."
+          },
+          "400" : {
+            "description" : "Bad request."
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid."
+          },
+          "403" : {
+            "description" : "Operation not authorized."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          },
+          "501" : {
+            "description" : "Service not yet implemented."
+          }
+        }
+      },
+      "delete" : {
+        "summary" : "Deletes a completed task.",
+        "consumes" : [ "text/plain" ],
+        "parameters" : [ {
+          "in" : "path",
+          "type" : "string",
+          "name" : "id",
+          "description" : "id of the user.",
+          "required" : true
+        }, {
+          "in" : "body",
+          "name" : "task",
+          "description" : "id of the task.",
+          "required" : true,
+          "schema" : {
+            "example" : "72AD9DBC60AE485782D43A1AE09279A"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success! User record has been removed."
+          },
+          "400" : {
+            "description" : "Bad request. User not found."
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid."
+          },
+          "403" : {
+            "description" : "Operation not authorized."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          },
+          "501" : {
+            "description" : "Service not yet implemented."
+          }
+        }
+      }
+    },
+    "/user/{id}/employees" : {
+      "post" : {
+        "summary" : "Assigns an employee to a manager.",
+        "parameters" : [ {
+          "in" : "path",
+          "type" : "string",
+          "name" : "id",
+          "description" : "id of the manager.",
+          "required" : true
+        }, {
+          "in" : "body",
+          "name" : "user",
+          "description" : "A new employee",
+          "required" : true,
+          "schema" : {
+            "type" : "object",
+            "required" : [ "firstName", "lastName", "email", "phone" ],
+            "properties" : {
+              "firstName" : {
+                "type" : "string",
+                "example" : "Jesse"
+              },
+              "lastName" : {
+                "type" : "string",
+                "example" : "Swarthout"
+              },
+              "email" : {
+                "type" : "string",
+                "example" : "jetti@example.org"
+              },
+              "phone" : {
+                "type" : "string",
+                "example" : "999-989-9229"
+              },
+              "hireDate" : {
+                "type" : "string",
+                "example" : "1997-07-16"
+              },
+              "workflow" : {
+                "type" : "string",
+                "example" : "72AD9DBC60AE485782D43A1AE09279A"
+              }
+            }
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Success! Employee has been assigned to manager."
+          },
+          "400" : {
+            "description" : "Bad request. User not found."
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid."
+          },
+          "403" : {
+            "description" : "Operation not authorized."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          },
+          "501" : {
+            "description" : "Service not yet implemented."
+          }
+        }
+      },
+      "delete" : {
+        "summary" : "Unnassigns an employee from a manager.",
+        "consumes" : [ "text/plain" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "description" : "id of user.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "task",
+          "description" : "id of the user.",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "81484e47aa46445ab8ab73f01be9dcc1"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success! User record has been removed."
+          },
+          "400" : {
+            "description" : "Bad request. User not found."
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid."
+          },
+          "403" : {
+            "description" : "Operation not authorized."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          },
+          "501" : {
+            "description" : "Service not yet implemented."
+          }
+        }
+      }
+    },
+    "/workflow" : {
+      "post" : {
+        "summary" : "Creates a new workflow configuration",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "workflow",
+          "description" : "Adds a single workflow.",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Workflow"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Success! Workflow has been created."
+          },
+          "400" : {
+            "description" : "Bad request."
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid."
+          },
+          "403" : {
+            "description" : "Operation not authorized."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          },
+          "501" : {
+            "description" : "Service not yet implemented."
+          }
+        }
+      }
+    },
+    "/workflow/{id}" : {
+      "get" : {
+        "summary" : "Retrieves a workflow by id.",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "description" : "The id of workflow to get.",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success! Workflow has been found.",
+            "schema" : {
+              "$ref" : "#/definitions/Workflow"
+            }
+          },
+          "400" : {
+            "description" : "Bad request."
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid."
+          },
+          "403" : {
+            "description" : "Operation not authorized."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          },
+          "501" : {
+            "description" : "Service not yet implemented."
+          }
+        }
+      },
+      "put" : {
+        "summary" : "Updates an existing workflow.",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "description" : "The id of workflow to amend.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "workflow",
+          "description" : "workflow object",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Workflow"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Success! Workflow has been updated."
+          },
+          "400" : {
+            "description" : "Bad request."
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid."
+          },
+          "403" : {
+            "description" : "Operation not authorized."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          },
+          "501" : {
+            "description" : "Service not yet implemented."
+          }
+        }
+      },
+      "delete" : {
+        "summary" : "Deletes an existing workflow.",
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "description" : "The id of workflow to delete.",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success! Workflow has been deleted."
+          },
+          "400" : {
+            "description" : "Bad request."
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid."
+          },
+          "403" : {
+            "description" : "Operation not authorized."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          },
+          "501" : {
+            "description" : "Service not yet implemented."
+          }
+        }
+      }
+    },
+    "/task" : {
+      "post" : {
+        "summary" : "Creates a new task.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "task",
+          "description" : "Adds a single task.",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Task"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Success! Task has been created."
+          },
+          "400" : {
+            "description" : "Bad request."
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid."
+          },
+          "403" : {
+            "description" : "Operation not authorized."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          },
+          "501" : {
+            "description" : "Service not yet implemented."
+          }
+        }
+      }
+    },
+    "/task/{id}" : {
+      "get" : {
+        "summary" : "Retrieves a task by id.",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "description" : "The id of the task to get.",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success! Task has been found.",
+            "schema" : {
+              "$ref" : "#/definitions/Task"
+            }
+          },
+          "400" : {
+            "description" : "Bad request."
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid."
+          },
+          "403" : {
+            "description" : "Operation not authorized."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          },
+          "501" : {
+            "description" : "Service not yet implemented."
+          }
+        }
+      },
+      "put" : {
+        "summary" : "Updates an existing task.",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "description" : "The id of task to amend.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "workflow",
+          "description" : "task object",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Task"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Success! Task has been updated."
+          },
+          "400" : {
+            "description" : "Bad request."
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid."
+          },
+          "403" : {
+            "description" : "Operation not authorized."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          },
+          "501" : {
+            "description" : "Service not yet implemented."
+          }
+        }
+      },
+      "delete" : {
+        "summary" : "Deletes an existing task.",
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "description" : "The id of task to delete.",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success! Task has been deleted."
+          },
+          "400" : {
+            "description" : "Bad request."
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid."
+          },
+          "403" : {
+            "description" : "Operation not authorized."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          },
+          "501" : {
+            "description" : "Service not yet implemented."
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "User" : {
+      "description" : "A User (spoiler alert) represents a human, or more pointedly, the users that will interact with the UTC onboarding system. The User object stores basic identity deets for both employee and manager users.",
+      "type" : "object",
+      "required" : [ "firstName", "lastName", "email", "phone", "type" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "example" : "72AD9DBC60AE485782D43A1AE09279A4",
+          "description" : "Uniquely identifies a User object."
+        },
+        "firstName" : {
+          "type" : "string",
+          "example" : "Rick",
+          "description" : "User's first name."
+        },
+        "lastName" : {
+          "type" : "string",
+          "example" : "Sanchez",
+          "description" : "User's last name."
+        },
+        "email" : {
+          "type" : "string",
+          "format" : "email",
+          "example" : "rick.sanchez@example.org",
+          "description" : "User's email address."
+        },
+        "phone" : {
+          "type" : "string",
+          "example" : "989-999-2229",
+          "description" : "User's phone number."
+        },
+        "type" : {
+          "type" : "string",
+          "enum" : [ "employee", "manager" ],
+          "description" : "A User's \"type\" can be one of the following - employee or manager.",
+          "example" : "manager"
+        },
+        "startDate" : {
+          "type" : "string",
+          "description" : "The date of employment for a new hire.",
+          "example" : "2018-02-01"
+        },
+        "workflow" : {
+          "type" : "string",
+          "description" : "The id of the workflow the user has been assigned.",
+          "example" : "72AD9DBC60AE485782D43A1AE09279A4"
+        },
+        "tasks" : {
+          "type" : "array",
+          "description" : "An array of task IDs indicating which tasks the user has been completed.",
+          "items" : {
+            "type" : "string"
+          },
+          "example" : [ "ECCD3A6ED4C54D2DA28C9CDD28F6417E", "ECCD3A6ED4C54D2DA28C9CDD28F6417E", "ECCD3A6ED4C54D2DA28C9CDD28F6417E" ]
+        },
+        "employees" : {
+          "type" : "object",
+          "additionalProperties" : true,
+          "example" : {
+            "72AD9DBC60AE485782D43A1AE09279A" : "Morty Smith",
+            "72AD9DBC60AE485782D43A1A309279A" : "Toddy"
+          }
+        }
+      }
+    },
+    "Task" : {
+      "type" : "object",
+      "description" : "A configuration document for workflow tasks. Workflows are comprised of Task objects, which are stored in a Workflow object's \"tasks\" map.",
+      "required" : [ "name" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "example" : "ECCD3A6ED4C54D2DA28C9CDD28F6417E",
+          "description" : "Uniquely identifies a task."
+        },
+        "name" : {
+          "type" : "string",
+          "example" : "Setup Slack",
+          "description" : "The display name of the task."
+        },
+        "descriptions" : {
+          "description" : "A task's instruction set.",
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "viewer" : {
+                "type" : "string"
+              },
+              "instructions" : {
+                "type" : "string"
+              }
+            },
+            "example" : {
+              "manager" : "Do something to complete this task.",
+              "employee" : "Do something to complete this task."
+            }
+          }
+        },
+        "viewers" : {
+          "type" : "string",
+          "enum" : [ "hr", "manager", "employee" ],
+          "example" : [ "manager", "employee" ],
+          "description" : "Indicates the task viewer based on User type"
+        }
+      }
+    },
+    "Workflow" : {
+      "type" : "object",
+      "description" : "A configuration document for a UTC on-boarding workflow. A workflow document defines all the steps a new hire must complete to be considered officially \"on-boarded.\" An on-boarding blueprint if you will.",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "example" : "ECCD3A6ED4C54D2DA28C9CDD28F6417E",
+          "description" : "Uniquely identifies a workflow."
+        },
+        "name" : {
+          "type" : "string",
+          "example" : "Cloud",
+          "description" : "The display name of the workflow."
+        },
+        "description" : {
+          "type" : "string",
+          "example" : "Onboard a Cloud Developer.",
+          "description" : "Describes a workflow's purpose."
+        },
+        "tasks" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Task"
+          },
+          "description" : "Associates tasks with a workflow and maintains the order in which Tasks should be completed."
+        }
+      }
+    }
+  },
+  "host" : "virtserver.swaggerhub.com",
+  "schemes" : [ "https" ],
+  "basePath" : "/kari_bullard/Cloud-Practicum/1.0.5"
+}

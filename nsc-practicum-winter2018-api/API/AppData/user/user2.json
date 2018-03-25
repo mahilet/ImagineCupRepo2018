@@ -1,0 +1,17 @@
+{
+    "id": "36ACC500A6814D669D6450EC24D11033",
+    "firstName": "Freddy",
+    "lastName": "Couger",
+    "email": "freddy.couger@example.org",
+    "phone": "156-999-2229",
+    "type": "manager",
+    "manager": "F3A24158E9A14421AD03D15BB693CD04",
+    "employees": [
+        "464CC09A6FE146BF9F643612AC3CBC33"
+    ],
+    "workflow": "ECCD3A6ED4C54D2DA28C9CDD28F6417E",
+    "tasks": [
+        "CFDB0D2BFDC24388BB29C8FB07011BCC",
+        "ECCD3A6ED4C54D2DA28C9CDD28F6417E"
+    ]
+}

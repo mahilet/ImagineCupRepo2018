@@ -1,0 +1,15 @@
+{
+    "id": "968E39BADC5F47A2BC133FFB83F28EC1",
+    "firstName": "Mary",
+    "lastName": "Bloody",
+    "email": "mary.bloody@example.org",
+    "phone": "989-456-2229",
+    "type": "employee",
+    "manager": "132B5FBE238448B58675DDD7E471D9C6",
+    "employees": [ ],
+    "workflow": "50ED1F575DE2437F89C090136DBE046A",
+    "tasks": [
+        "ECCD3A6ED4C54D2DA28C9CDD28F6417E",
+        "ECCD3A6ED4C54D2DA28C9CDD28F6417E"
+    ]
+}

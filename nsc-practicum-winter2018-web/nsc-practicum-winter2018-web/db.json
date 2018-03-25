@@ -1,0 +1,634 @@
+{
+  "user": [{
+    "id": "79640540E8D14335947175EC8FE618A1",
+    "ActiveDirectoryId": "test-id-demo1",
+    "firstName": "TestManager_1",
+    "lastName": "LName",
+    "email": "Test.Manager1@example.org",
+    "phone": "989-456-2229",
+    "type": "manager",
+    "employees": [
+      "test-id-demo3",
+      "test-id-demo4",
+      "test-id-demo5",
+      "test-id-demo6",
+      "test-id-demo7",
+      "test-id-demo8",
+      "test-id-demo9",
+      "test-id-demo11",
+      "test-id-demo10",
+      "test-id-demo12",
+      "test-id-demo13"
+    ],
+    "Workflow": "CloudOffshoreExternal",
+    "Tasks": ["12", "11", "18", "17", "19", "20", "16", "15", "14", "13"],
+    "StartDate": "12-12-1994"
+  },
+  {
+    "id": "79640540E8D14335947175EC8FE618A2",
+    "ActiveDirectoryId": "test-id-demo2",
+    "firstName": "TestManager_2",
+    "lastName": "LName",
+    "email": "Test.Manager2@example.org",
+    "phone": "156-999-2229",
+    "type": "manager",
+    "employees": [
+      "test-id-demo14",
+      "test-id-demo15",
+      "test-id-demo16"
+    ],
+    "Workflow": "CloudOffshoreExternal",
+    "Tasks": ["12", "11", "18", "17", "19", "20"],
+    "StartDate": "04-12-2002"
+  },
+  {
+    "id": "91172C2B410C43138B42ACDFA2C6E367",
+    "ActiveDirectoryId": "test-id-demo3",
+    "firstName": "Sally",
+    "lastName": "Smith",
+    "email": "SallySmith@example.com",
+    "phone": "989-456-7852",
+    "type": "employee",
+    "employees": null,
+    "Workflow": "DCDOOffshoreExternal",
+    "Tasks": ["1", "2", "3"],
+    "StartDate": "08-12-2017"
+  },
+  {
+    "id": "91172C2B410C43138B42ACDFA2C6E368",
+    "ActiveDirectoryId": "test-id-demo4",
+    "firstName": "Jane",
+    "lastName": "Jones",
+    "email": "JaneJones@example.com",
+    "phone": "989-456-2229",
+    "type": "employee",
+    "employees": null,
+    "Workflow": "CloudOffshoreInternal",
+    "Tasks": ["1", "2", "3", "4", "5"],
+    "StartDate": "08-20-2017"
+  },
+  {
+    "id": "91172C2B410C43138B42ACDFA2C6E369",
+    "ActiveDirectoryId": "test-id-demo5",
+    "firstName": "Bobby",
+    "lastName": "Marley",
+    "email": "BobbyMarley@example.com",
+    "phone": "989-456-7852",
+    "type": "employee",
+    "employees": null,
+    "Workflow": "CloudOffshoreExternal",
+    "Tasks": ["1", "2", "3", "4", "5"],
+    "StartDate": "08-28-2017"
+  },
+  {
+    "id": "91172C2B410C43138B42ACDFA2C6E370",
+    "ActiveDirectoryId": "test-id-demo6",
+    "firstName": "Dale",
+    "lastName": "Timothy",
+    "email": "DaleTimothy@example.com",
+    "phone": "989-456-7852",
+    "type": "employee",
+    "employees": null,
+    "Workflow": "DCDOOffshoreExternal",
+    "Tasks": ["1", "2", "3", "5"],
+    "StartDate": "09-02-2017"
+  },
+  {
+    "id": "91172C2B410C43138B42ACDFA2C6E371",
+    "ActiveDirectoryId": "test-id-demo7",
+    "firstName": "Donnie",
+    "lastName": "Darko",
+    "email": "DonnieDarko@example.com",
+    "phone": "989-456-7852",
+    "type": "employee",
+    "employees": null,
+    "Workflow": "CloudOffshoreInternal",
+    "Tasks": ["1", "2", "3"],
+    "StartDate": "09-10-2017"
+  },
+  {
+    "id": "91172C2B410C43138B42ACDFA2C6E372",
+    "ActiveDirectoryId": "test-id-demo8",
+    "firstName": "Deborah",
+    "lastName": "Jansen",
+    "email": "DeborahJansen@example.com",
+    "phone": "989-456-7852",
+    "type": "employee",
+    "employees": null,
+    "Workflow": "CloudOffshoreInternal",
+    "Tasks": ["1", "2", "3"],
+    "StartDate": "09-16-2017"
+  },
+  {
+    "id": "91172C2B410C43138B42ACDFA2C6E373",
+    "ActiveDirectoryId": "test-id-demo9",
+    "firstName": "June",
+    "lastName": "Farlow",
+    "email": "JuneFarlow@example.com",
+    "phone": "989-456-7852",
+    "type": "employee",
+    "employees": null,
+    "Workflow": "CloudOffshoreInternal",
+    "Tasks": ["1", "2", "3", "4", "5"],
+    "StartDate": "09-18-2017"
+  },
+  {
+    "id": "91172C2B410C43138B42ACDFA2C6E374",
+    "ActiveDirectoryId": "test-id-demo10",
+    "firstName": "Fran",
+    "lastName": "Cisco",
+    "email": "FranCisco@example.com",
+    "phone": "989-456-7852",
+    "type": "employee",
+    "employees": null,
+    "Workflow": "CloudOffshoreExternal",
+    "Tasks": ["1", "2", "3", "5"],
+    "StartDate": "09-27-2017"
+  },
+  {
+    "id": "91172C2B410C43138B42ACDFA2C6E375",
+    "ActiveDirectoryId": "test-id-demo11",
+    "firstName": "James",
+    "lastName": "Johnson",
+    "email": "JamesJohnson@example.com",
+    "phone": "989-456-7852",
+    "type": "employee",
+    "employees": null,
+    "Workflow": "CloudOffshoreInternal",
+    "Tasks": ["1", "2", "3"],
+    "StartDate": "10-02-2017"
+  },
+  {
+    "id": "91172C2B410C43138B42ACDFA2C6E376",
+    "ActiveDirectoryId": "test-id-demo12",
+    "firstName": "Seth",
+    "lastName": "McDonald",
+    "email": "SethMcDonald@example.com",
+    "phone": "989-456-7852",
+    "type": "employee",
+    "employees": null,
+    "Workflow": "CloudOffshoreExternal",
+    "Tasks": ["1", "2", "3"],
+    "StartDate": "10-05-2017"
+  },
+  {
+    "id": "91172C2B410C43138B42ACDFA2C6E377",
+    "ActiveDirectoryId": "test-id-demo13",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "JohnDoe@example.com",
+    "phone": "989-456-7852",
+    "type": "employee",
+    "employees": null,
+    "Workflow": "CloudOffshoreInternal",
+    "Tasks": ["1", "2", "3", "4", "5"],
+    "StartDate": "10-20-2017"
+  },
+  {
+    "id": "91172C2B410C43138B42ACDFA2C6E378",
+    "ActiveDirectoryId": "test-id-demo14",
+    "firstName": "Dan",
+    "lastName": "Danger",
+    "email": "DanDanger@example.com",
+    "phone": "989-456-7852",
+    "type": "employee",
+    "employees": null,
+    "Workflow": "CloudOffshoreInternal",
+    "Tasks": ["1", "2", "3", "5"],
+    "StartDate": "10-20-2017"
+  },
+  {
+    "id": "91172C2B410C43138B42ACDFA2C6E379",
+    "ActiveDirectoryId": "test-id-demo15",
+    "firstName": "It",
+    "lastName": "Clown",
+    "email": "ItClown@example.com",
+    "phone": "989-456-7852",
+    "type": "employee",
+    "employees": null,
+    "Workflow": "CloudOffshoreExternal",
+    "Tasks": ["1", "2", "3", "4", "5"],
+    "StartDate": "10-23-2017"
+  },
+  {
+    "id": "91172C2B410C43138B42ACDFA2C6E380",
+    "ActiveDirectoryId": "test-id-demo16",
+    "firstName": "Mary",
+    "lastName": "Bloody",
+    "email": "MaryBloody@example.com",
+    "phone": "989-456-7852",
+    "type": "employee",
+    "employees": null,
+    "Workflow": "CloudOffshoreExternal",
+    "Tasks": [
+      "1", "2", "3"
+    ],
+    "StartDate": "11-10-2017"
+  }
+],
+  "Workflows": [
+  {
+      "id": "CloudOffshoreExternal",
+      "name": "CloudOffshoreExternal",
+      "description": "Onboarding tasks for offshore external Cloud employees.",
+      "tasks": [{
+      "Id": 1,
+      "Name": "Report to RMG",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 2,
+      "Name": "RMG --> PM Contact Details",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 3,
+      "Name": "HR Orientation",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 4,
+      "Name": "Background Verification",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 5,
+      "Name": "Ust ID Setup",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 6,
+      "Name": "Mandatory Trainings",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 7,
+      "Name": "PM Sync-Up",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 8,
+      "Name": "About Me Email",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 9,
+      "Name": "Seat & Asset Allocation",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 10,
+      "Name": "NDA Sign-Up",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 11,
+      "Name": "Mailbox Activation",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 12,
+      "Name": "Software Request | VPN + VIP",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 13,
+      "Name": "Software Request | Slack",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 14,
+      "Name": "Project Tool Access | Jira",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 15,
+      "Name": "Project Tool Access | Corporate Domain",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 16,
+      "Name": "Project Tool Access | Github",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 17,
+      "Name": "Project Tool Access | SharePoint",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 18,
+      "Name": "Project Docs | Org Chart",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 19,
+      "Name": "Project Docs | About Team",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 20,
+      "Name": "Project Docs | Project Overview",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }]
+    },
+    {
+      "id": "CloudOffshoreInternal",
+      "name": "CloudOffshoreInternal",
+      "description": "",
+      "tasks": [{
+      "Id": 6,
+      "Name": "Report to RMG",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 7,
+      "Name": "RMG --> PM Contact Details",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 8,
+      "Name": "HR Orientation",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 9,
+      "Name": "Background Verification",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 10,
+      "Name": "Ust ID Setup",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 11,
+      "Name": "Mandatory Trainings",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 12,
+      "Name": "PM Sync-Up",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 13,
+      "Name": "About Me Email",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 14,
+      "Name": "Seat & Asset Allocation",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 15,
+      "Name": "NDA Sign-Up",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 16,
+      "Name": "Mailbox Activation",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 17,
+      "Name": "Software Request | VPN + VIP",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 18,
+      "Name": "Software Request | Slack",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 19,
+      "Name": "Project Tool Access | Jira",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 20,
+      "Name": "Project Tool Access | Corporate Domain",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }]
+    },
+    {
+      "id": "DCDOOffshoreExternal",
+      "name": "DCDOOffshoreExternal",
+      "description": "",
+      "tasks": [{
+      "Id": 1,
+      "Name": "Report to RMG",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 2,
+      "Name": "RMG --> PM Contact Details",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 3,
+      "Name": "HR Orientation",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 4,
+      "Name": "Background Verification",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 5,
+      "Name": "Ust ID Setup",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 6,
+      "Name": "Mandatory Trainings",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 7,
+      "Name": "PM Sync-Up",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 8,
+      "Name": "About Me Email",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 9,
+      "Name": "Seat & Asset Allocation",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 10,
+      "Name": "NDA Sign-Up",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 11,
+      "Name": "Mailbox Activation",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 12,
+      "Name": "Software Request | VPN + VIP",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 13,
+      "Name": "Software Request | Slack",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 14,
+      "Name": "Project Tool Access | Jira",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 15,
+      "Name": "Project Tool Access | Corporate Domain",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 16,
+      "Name": "Project Tool Access | Github",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 17,
+      "Name": "Project Tool Access | SharePoint",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 18,
+      "Name": "Project Docs | Org Chart",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 19,
+      "Name": "Project Docs | About Team",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }, {
+      "Id": 20,
+      "Name": "Project Docs | Project Overview",
+      "Descriptions": {
+        "Employee": "Employee instruction set."
+      },
+      "Viewers": [2]
+      }]
+    }
+  ]
+  }
